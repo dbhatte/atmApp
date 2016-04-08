@@ -1,0 +1,31 @@
+{
+  "name": "atm",
+  "version": "1.0.0",
+  "description": "ATM App",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -a localhost -p 8000 -c-1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbhatte/atmApp.git"
+  },
+  "keywords": [
+    "atm"
+  ],
+  "author": "Devendra Bhatte",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dbhatte/atmApp/issues"
+  },
+  "homepage": "https://github.com/dbhatte/atmApp#readme",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "grunt": "^1.0.1",
+    "grunt-contrib-compass": "^1.1.1",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "http-server": "^0.9.0"
+  }
+}
