@@ -34,8 +34,8 @@ module.exports = function(grunt) {
        all: {
            files: {
                'app/js/min/main.min.js': [
-               'app/bower_components/*.js', 
-               'app/js/*.js'
+               //'bower_components/*.js', 
+               'app/js/src/*.js'
                ]
            }
         },

@@ -1,0 +1,62 @@
+<div class="jumbotron">
+	<form name="withdrawalForm" class="css-form" novalidate ng-submit="withdrawalForm.$valid && withdraw()">
+  	<div class="container">
+		<div class="row">
+	  		<div class="col-xs-6">
+			  <p>Select the Amount to withdraw</p>
+			</div>
+		</div>
+		<div class="row top-buffer">
+	  		<div class="col-xs-3">
+			  <div class="btn-group" role="group" aria-label="...">
+			  	<button type="submit" class="btn btn-info btn-lg" ng-click="amount=50">50</button>
+			  </div>
+			</div>
+
+	  		<div class="col-xs-3">
+			  <div class="btn-group" role="group" aria-label="...">
+			  	<button type="submit" class="btn btn-info btn-lg" ng-click="amount=100">100</button>
+			  </div>
+			</div>
+		</div>
+		<div class="row top-buffer">
+	  		<div class="col-xs-3">
+			  <div class="btn-group" role="group" aria-label="...">
+			  	<button type="submit" class="btn btn-info btn-lg" ng-click="amount=150">150</button>
+			  </div>
+			</div>
+
+	  		<div class="col-xs-3">
+			  <div class="btn-group" role="group" aria-label="...">
+			  	<button type="submit" class="btn btn-info btn-lg" ng-click="amount=200">200</button>
+			  </div>
+			</div>
+		</div>
+		<div class="row top-buffer">
+	  		<div class="col-xs-3">
+			  <div class="btn-group" role="group" aria-label="...">
+			  	<button type="submit" class="btn btn-info btn-lg" ng-click="amount=250">250</button>
+			  </div>
+			</div>
+
+	  		<div class="col-xs-3">
+			  <div class="btn-group" role="group" aria-label="...">
+			  	<button type="submit" class="btn btn-info btn-lg" ng-click="amount=300">300</button>
+			  </div>
+			</div>
+		</div>
+		<div class="row top-buffer">
+	  		<div class="col-xs-3">
+			  <div class="btn-group" role="group" aria-label="...">
+			  	<button type="button" class="btn btn-info btn-lg" ng-click="customAmount()">Custom amount</button>
+			  </div>
+			</div>
+	  		<div class="col-xs-3">
+			  <div class="btn-group" role="group" aria-label="...">
+			  	<button type="button" class="btn btn-danger btn-lg" ng-click="abort()">Cancel</button>
+			  </div>
+			</div>
+
+		</div>
+</form>
+</div>

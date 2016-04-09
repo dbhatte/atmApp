@@ -1,0 +1,45 @@
+<div class="jumbotron">
+	<form name="customAmountform" class="css-form" novalidate ng-submit="setAmount()">
+  	<div class="container">
+		<div class="row">
+	  		<div class="col-xs-6">
+			  <p>Please enter amount in multiples of 50</p>
+			</div>
+		</div>
+		<div class="row top-buffer">
+	  		<div class="col-xs-6">
+			  <div class="input-group input-group-lg">
+			    <input type="input" name="amount" ng-model="amount" class="form-control" placeholder="Please enter your Amount" required="true" >
+			  </div>
+			</div>
+		</div>
+		<div class="row top-buffer">
+	  		<div class="col-xs-2">
+			  <div class="btn-group" role="group" aria-label="...">
+			  	<button type="submit" class="btn btn-success btn-lg">Enter</button>
+			  </div>
+			</div>
+
+	  		<div class="col-xs-2">
+			  <div class="btn-group" role="group" aria-label="...">
+			  	<button type="button" class="btn btn-warning btn-lg" ng-click="amount=''">Clear</button>
+			  </div>
+			</div>
+
+	  		<div class="col-xs-2">
+			  <div class="btn-group" role="group" aria-label="...">
+			  	<button type="button" class="btn btn-danger btn-lg" ng-click="abort()">Cancel</button>
+			  </div>
+			</div>
+		</div>
+		<div class="row top-buffer">
+
+	  		<div class="col-xs-6">
+	  			<div ng-show="customAmountform.$submitted" >
+					<span ng-show="customAmountform.amount.$error.required" class='alert alert-danger' role="alert">Amount cannot be empty.</span>
+			    </div>
+			  <message data="messageObject" ></message>
+		  	</div>
+	</div>
+</form>
+</div>

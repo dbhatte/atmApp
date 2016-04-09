@@ -1,0 +1,49 @@
+<div class="jumbotron">
+	<form name="loginform" class="css-form" novalidate ng-submit="login()">
+  	<div class="container">
+		<div class="row">
+	  		<div class="col-xs-6">
+			  <p>Please enter your 4 digit PIN number</p>
+			</div>
+		</div>
+		<div class="row top-buffer">
+	  		<div class="col-xs-6">
+			  <div class="input-group input-group-lg">
+			    <input type="password" name="pin" ng-model="pin" class="form-control" placeholder="Please enter your PIN" minlength="4" maxlength="4" required="true" pattern="[0-9]{4}">
+			  </div>
+			</div>
+		</div>
+		<div class="row top-buffer">
+	  		<div class="col-xs-2">
+			  <div class="btn-group" role="group" aria-label="...">
+			  	<button type="submit" class="btn btn-success btn-lg">Enter</button>
+			  </div>
+			</div>
+
+	  		<div class="col-xs-2">
+			  <div class="btn-group" role="group" aria-label="...">
+			  	<button type="button" class="btn btn-warning btn-lg" ng-click="pin=''">Clear</button>
+			  </div>
+			</div>
+
+	  		<div class="col-xs-2">
+			  <div class="btn-group" role="group" aria-label="...">
+			  	<button type="button" class="btn btn-danger btn-lg" ng-click="abort()">Cancel</button>
+			  </div>
+			</div>
+		</div>
+		<div class="row top-buffer">
+
+	  		<div class="col-xs-6">
+	  			<div ng-show="loginform.$submitted" >
+					<span ng-show="loginform.pin.$error.required" class='alert alert-danger' role="alert">PIN cannot be empty.</span>
+					<span ng-show="loginform.pin.$error.minlength || loginform.size.$error.maxlength || loginform.pin.$error.pattern" class='alert alert-danger' role="alert">
+      					PIN should be a 4 digit number.
+					</span>
+
+			    </div>
+		    	<message data="messageObject" ></message>
+		  	</div>
+	</div>
+</form>
+</div>
