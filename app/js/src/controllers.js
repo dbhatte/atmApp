@@ -40,8 +40,8 @@ controllers.controller('WelcomeScreenController', ['$scope', '$timeout', '$locat
 /*
     This controller checks the inputted PIN with the backend.
 */
-controllers.controller('LoginScreenController', ['$scope', '$location', 'logout', 'LoggedInUser', 'MessageService',
-    function ($scope, $location, logout, LoggedInUser, MessageService){
+controllers.controller('LoginScreenController', ['$scope', '$location', 'LoggedInUser', 'MessageService',
+    function ($scope, $location, LoggedInUser, MessageService){
         
    $scope.login = function() {
         $scope.$parent.messageObject = MessageService.getMessageObject("", false, false);
@@ -78,8 +78,11 @@ controllers.controller('WithdrawalScreenController', ['$scope', '$location',
    
 }]);
 
-controllers.controller('CustomAmountScreenController', ['$scope', '$location', 'MessageService', 'logout',
-    function ($scope, $location, MessageService, logout){
+/*
+    This controller checks if the insert value is a valid number in multiple of 50.
+*/
+controllers.controller('CustomAmountScreenController', ['$scope', '$location', 'MessageService',
+    function ($scope, $location, MessageService){
 
     $scope.setAmount = function(){
         if (!$scope.customAmountform.$valid){
