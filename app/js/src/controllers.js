@@ -1,5 +1,8 @@
 var controllers = angular.module('controllers', ['services']);
 
+/*
+    Main Controller implements abort functionality which is shared by all child controllers
+*/
 controllers.controller('MainController', ['$scope', 'MessageService', 'logout', 
     function ($scope, MessageService, logout){
 
@@ -13,6 +16,9 @@ controllers.controller('MainController', ['$scope', 'MessageService', 'logout',
    
 }]);
 
+/*
+    This controller takes in the inserted card and gets user details from the backend.
+*/
 controllers.controller('WelcomeScreenController', ['$scope', '$timeout', '$location', 'UserService', 'LoggedInUser', 'MessageService',
     function ($scope, $timeout, $location, UserService, LoggedInUser, MessageService){
 
@@ -27,11 +33,13 @@ controllers.controller('WelcomeScreenController', ['$scope', '$timeout', '$locat
             }, 1000);
 
         });
-
     }
    
 }]);
 
+/*
+    This controller checks the inputted PIN with the backend.
+*/
 controllers.controller('LoginScreenController', ['$scope', '$location', 'logout', 'LoggedInUser', 'MessageService',
     function ($scope, $location, logout, LoggedInUser, MessageService){
         
@@ -45,6 +53,7 @@ controllers.controller('LoginScreenController', ['$scope', '$location', 'logout'
             $location.path('/withdrawal');
         }
         else {
+            // reset the form to pristine state
             $scope.loginform.$setPristine();
             $scope.pin = '';
             $scope.$parent.messageObject = MessageService.getMessageObject("Incorrect PIN!", true, false);
@@ -83,6 +92,7 @@ controllers.controller('CustomAmountScreenController', ['$scope', '$location', '
                 $scope.$parent.messageObject = MessageService.getMessageObject("Please enter amount in multiples of 50.", true, false);
                 return;
             } 
+            $scope.$parent.messageObject = MessageService.getMessageObject("", false, false);
             $location.path('/dispense');
         }
         else {

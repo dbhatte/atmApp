@@ -2,6 +2,9 @@
 
 var services = angular.module('services', ['ngResource']);
 
+/*
+	User services retrievies user details for a specific user from the backend.
+*/
 services.factory('UserService', ['$resource', function($resource){
 
 	return $resource('data/:id.json', {}, {
@@ -10,6 +13,9 @@ services.factory('UserService', ['$resource', function($resource){
 
 }]);
 
+/*
+	This service is used to share the details of currently logged-in user between controllers
+*/
 services.factory('LoggedInUser', function(){
 	var user = '';
 	return {
@@ -23,7 +29,9 @@ services.factory('LoggedInUser', function(){
 
 });
 
-
+/*
+	This service exposed abort functionality for controllers
+*/
 services.factory('logout', ['$timeout', '$location', function($timeout, $location){
 
 	return function(callback){
@@ -35,7 +43,10 @@ services.factory('logout', ['$timeout', '$location', function($timeout, $locatio
 	
 }]);
 
-services.factory('MessageService', ['$timeout', '$location', function($timeout, $location){
+/*
+	This service creates message object for displaying with message directive
+*/
+services.factory('MessageService', function(){
 
 	return {
 		getMessageObject: function(_messageText, _isError, _isInfo){
@@ -47,4 +58,4 @@ services.factory('MessageService', ['$timeout', '$location', function($timeout, 
 		}
 	}
 	
-}]);
+});
