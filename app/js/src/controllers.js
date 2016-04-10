@@ -25,10 +25,11 @@ controllers.controller('WelcomeScreenController', ['$scope', '$timeout', '$locat
     $scope.checkCard = function(){
         $scope.$parent.messageObject = MessageService.getMessageObject("Please wait while your card is being checked.", false, true);
 
+        /* Customer ID here would be ideally be read from the card. Hardcoding here.*/
         $scope.user = UserService.get({id: 1}, function(user) {
           LoggedInUser.setUser(user);
           $timeout(function (){
-                $scope.messageText = "Card Verified.";
+                $scope.$parent.messageObject = MessageService.getMessageObject("Card Verified.", false, true);
                 $location.path('/login');
             }, 1000);
 
@@ -45,6 +46,8 @@ controllers.controller('LoginScreenController', ['$scope', '$location', 'LoggedI
         
    $scope.login = function() {
         $scope.$parent.messageObject = MessageService.getMessageObject("", false, false);
+
+        // If form is not valid, there is no reason to check business specific validations yet
         if (!$scope.loginform.$valid){
             return;
         }
@@ -85,6 +88,7 @@ controllers.controller('CustomAmountScreenController', ['$scope', '$location', '
     function ($scope, $location, MessageService){
 
     $scope.setAmount = function(){
+        // If form is not valid, there is no reason to check business specific validations yet
         if (!$scope.customAmountform.$valid){
             $scope.$parent.messageObject = MessageService.getMessageObject("", false, false);
             return;
@@ -107,9 +111,9 @@ controllers.controller('CustomAmountScreenController', ['$scope', '$location', '
 
 }]);
 
-controllers.controller('DispenseScreenController', ['$scope', '$timeout', '$location', 
-    function ($scope, $timeout, $location){
-    $scope.messageText = "The ATM is preparing to deliver the amount requested";
+controllers.controller('DispenseScreenController', ['$scope', '$timeout', '$location', 'MessageService',
+    function ($scope, $timeout, $location, MessageService){
+    $scope.$parent.messageObject = MessageService.getMessageObject("The ATM is preparing to deliver the amount requested.", false, true);
 
     $timeout(function (){
             $location.path('/takeCardAndMoney');
@@ -117,12 +121,13 @@ controllers.controller('DispenseScreenController', ['$scope', '$timeout', '$loca
    
 }]);
 
-controllers.controller('TakeCardAndMoneyScreenController', ['$scope', '$timeout', '$location',
-    function ($scope, $timeout, $location){
-    $scope.messageText = "Please take out your card and money";
+controllers.controller('TakeCardAndMoneyScreenController', ['$scope', '$timeout', '$location', 'MessageService',
+    function ($scope, $timeout, $location, MessageService){
+    $scope.$parent.messageObject = MessageService.getMessageObject("Please take your card and money.", false, true);
 
     $scope.takeCardAndMoney = function(){
         $timeout(function (){
+            $scope.$parent.messageObject = MessageService.getMessageObject("", false, false);
             $location.path('/');
         }, 1000);
     }

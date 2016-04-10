@@ -30,7 +30,7 @@ services.factory('LoggedInUser', function(){
 });
 
 /*
-	This service exposed abort functionality for controllers
+	This service exposes abort functionality to the controllers
 */
 services.factory('logout', ['$timeout', '$location', function($timeout, $location){
 

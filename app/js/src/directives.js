@@ -4,6 +4,7 @@ var directives = angular.module('directives', []);
 
 /*
   Message directive displays error and info messages.
+  This is done so as to provide a common error reporting UI across the entire application
 */
 directives.directive('message', function() {
   return {
@@ -17,6 +18,7 @@ directives.directive('message', function() {
 
 /*
   Implementation of history back button
+  This is done so as to provide same back button across the entire application
 */
 directives.directive('back', function() {
   return {
