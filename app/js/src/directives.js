@@ -12,3 +12,9 @@ directives.directive('message', function() {
   };
 });
 
+directives.directive('back', function() {
+  return {
+    template: '<button type="button" class="btn btn-info btn-sm" onclick="window.history.back()">Back</button>'
+  };
+});
+

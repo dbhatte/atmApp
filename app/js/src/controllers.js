@@ -17,7 +17,7 @@ controllers.controller('WelcomeScreenController', ['$scope', '$timeout', '$locat
     function ($scope, $timeout, $location, UserService, LoggedInUser, MessageService){
 
     $scope.checkCard = function(){
-        $scope.messageObject = MessageService.getMessageObject("Please wait while your card is being checked.", false, true);
+        $scope.$parent.messageObject = MessageService.getMessageObject("Please wait while your card is being checked.", false, true);
 
         $scope.user = UserService.get({id: 1}, function(user) {
           LoggedInUser.setUser(user);
@@ -36,7 +36,7 @@ controllers.controller('LoginScreenController', ['$scope', '$location', 'logout'
     function ($scope, $location, logout, LoggedInUser, MessageService){
         
    $scope.login = function() {
-        $scope.messageObject = MessageService.getMessageObject("", false, false);
+        $scope.$parent.messageObject = MessageService.getMessageObject("", false, false);
         if (!$scope.loginform.$valid){
             return;
         }
@@ -47,12 +47,12 @@ controllers.controller('LoginScreenController', ['$scope', '$location', 'logout'
         else {
             $scope.loginform.$setPristine();
             $scope.pin = '';
-            $scope.messageObject = MessageService.getMessageObject("Incorrect PIN!", true, false);
+            $scope.$parent.messageObject = MessageService.getMessageObject("Incorrect PIN!", true, false);
         }
         
 	};
 
-    $scope.messageObject = MessageService.getMessageObject("", false, false);
+    $scope.$parent.messageObject = MessageService.getMessageObject("", false, false);
 
 }]);
 
@@ -74,17 +74,23 @@ controllers.controller('CustomAmountScreenController', ['$scope', '$location', '
 
     $scope.setAmount = function(){
         if (!$scope.customAmountform.$valid){
+            $scope.$parent.messageObject = MessageService.getMessageObject("", false, false);
             return;
         }
-        if (angular.isNumber($scope.amount)) {
+        var amount = parseInt($scope.amount);
+        if (angular.isNumber(amount)) {
+            if (amount % 50 !== 0) {
+                $scope.$parent.messageObject = MessageService.getMessageObject("Please enter amount in multiples of 50.", true, false);
+                return;
+            } 
             $location.path('/dispense');
         }
         else {
-            $scope.messageObject = MessageService.getMessageObject("Please enter a valid amount.", true, false);
+            $scope.$parent.messageObject = MessageService.getMessageObject("Please enter a valid amount.", true, false);
         }
     };
  
-    $scope.messageObject = MessageService.getMessageObject("", false, false);
+    $scope.$parent.messageObject = MessageService.getMessageObject("", false, false);
 
 }]);
 

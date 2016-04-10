@@ -30,7 +30,7 @@ services.factory('logout', ['$timeout', '$location', function($timeout, $locatio
         $timeout(function (){
             $location.path('/app');
             callback();
-        }, 1000);
+        }, 2000);
 	}
 	
 }]);

@@ -1,8 +1,8 @@
-$app_color: blue;
+$app_color: #F0F8FF;
 
 
-body {
-	color: $app_color;
+.panel-body {
+	background-color: $app_color;
 }
 
 
