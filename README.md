@@ -9,6 +9,9 @@ Install Compass (Ruby is required for gem)
 Install nodejs
 
 	https://nodejs.org/en/download/
+Install bower
+
+	npm install -g bower
 Extract the zip file to a location and change to the atmApp directory
 
 	cd atmApp
