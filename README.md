@@ -1,4 +1,5 @@
 ATM App
+=========
 
 Setup
 ---------
@@ -22,9 +23,10 @@ Setup
 
 Limitations
 ---------
-
+* Internationalization needs to be implemented.
+* Error Handling mechanism needs to be implemented.
 
 Things to do
 ---------
-1. Unit Tests
-2. Protractor Tests
+* Unit Tests
+* Protractor Tests
