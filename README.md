@@ -3,22 +3,31 @@ ATM App
 
 Setup
 ---------
-1. Install Compass (Ruby is required for gem)
+Install Compass (Ruby is required for gem)
+
 	gem install compass
-2. Install nodejs
+Install nodejs
+
 	https://nodejs.org/en/download/
-3. Extract the zip file to a location 
-4. cd atmApp
-5. Run the following to install Node JS dependencies
+Extract the zip file to a location and change to the atmApp directory
+
+	cd atmApp
+Install Node JS dependencies
+
 	npm install
-6. Run the following for UI libraries
+Install Bower UI libraries
+
 	bower install
-7. Run the following to minify the JS files and convert SCSS to CSS files
+Run the following to minify the JS files and convert SCSS to CSS files
+
 	grunt
-8. kill grunt by pressing Ctrl+C
-9. Run the following to start the server
+Kill grunt by pressing Ctrl+C
+
+Run the following to start the server
+
 	npm start
-10. Access the url at
+Access the url at
+
 	http://localhost:8000/app/
 
 Limitations
